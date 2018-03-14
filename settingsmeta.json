@@ -1,0 +1,37 @@
+{
+    "name": "Pandora",
+    "skillMetadata": {
+        "sections": [
+            {
+                "name": "Connection",
+                "fields": [
+                    {
+                        "name": "ip_address",
+                        "type": "text",
+                        "label": "IP Address",
+                        "value": "192.168.1.10"
+                    },
+                    {
+                        "name": "port",
+                        "type": "text",
+                        "label": "Port",
+                        "value": "8080"
+                    },
+                    {
+                        "name": "user",
+                        "type": "text",
+                        "label": "User Name",
+                        "value": "kodi"
+                    },
+                    {
+                        "name": "password",
+                        "type": "password",
+                        "label": "Password",
+                        "value": ""
+                    }
+                ]
+            }
+        ]
+    }
+}
+
