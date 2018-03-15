@@ -20,7 +20,56 @@ class KodiControllerSkill(MycroftSkill):
     def initialize(self):
         self._load_vocab_files() 
         self.settings.set_changed_callback(self.on_websettings_changed)
-        self.on_websettings_changed()        
+        self.on_websettings_changed()  
+        
+        ### Register intents
+'''        
+        # Connection controls
+        connection_intent = IntentBuilder("ConnectionIntent").require("KodiKeywords").require("ConnectKeywords").build()
+        self.register_intent(connection_intent, self.handle_connection_intent)        
+        
+        # Playback controls
+        playpause_intent = IntentBuilder("PlayPauseIntent").require("KodiKeywords").require("PlayPauseKeywords").build()
+        self.register_intent(playpause_intent, self.handle_playpause_intent) 
+
+        stop_intent = IntentBuilder("StopIntent").require("KodiKeywords").require("StopKeywords").build()
+        self.register_intent(stop_intent, self.handle_stop_intent) 
+
+        seekforward_intent = IntentBuilder("SeekForwardIntent").require("KodiKeywords").require("SeekKeywords").require("ForwardKeywords").build()
+        self.register_intent(seekforward_intent, self.handle_stop_intent)         
+
+        seekback_intent = IntentBuilder("SeekBackIntent").require("KodiKeywords").require("SeekKeywords").require("BackKeywords").build()
+        self.register_intent(seekback_intent, self.handle_seekback_intent)
+'''        
+        # Menu controls
+        direction_intent = IntentBuilder("DirectionIntent").require("KodiKeywords").require("DirectionKeywords").build()
+        self.register_intent(direction_intent, self.handle_direction_intent)
+        
+        info_intent = IntentBuilder("InfoIntent").require("KodiKeywords").require("InfoKeywords").build()
+        self.register_intent(info_intent, self.handle_info_intent)
+        
+        osd_intent = IntentBuilder("InfoIntent").require("KodiKeywords").require("OSDKeywords").build()
+        self.register_intent(osd_intent, self.handle_osd_intent)
+        
+        home_intent = IntentBuilder("InfoIntent").require("KodiKeywords").require("HomeKeywords").build()
+        self.register_intent(home_intent, self.handle_home_intent)
+        
+        back_intent = IntentBuilder("InfoIntent").require("KodiKeywords").require("BackKeywords").build()
+        self.register_intent(back_intent, self.handle_back_intent)
+        
+        context_intent = IntentBuilder("InfoIntent").require("KodiKeywords").require("ContextKeywords").build()
+        self.register_intent(context_intent, self.handle_context_intent)
+        
+        select_intent = IntentBuilder("InfoIntent").require("KodiKeywords").require("SelectKeywords").build()
+        self.register_intent(select_intent, self.handle_select_intent)
+        
+        # Library controls
+        
+        scanvideo_intent = IntentBuilder("InfoIntent").require("KodiKeywords")).require("ScanKeywords").require("MovieKeywords").build()
+        self.register_intent(scanvideo_intent, self.handle_scanvideo_intent)
+        
+        scanaudio_intent = IntentBuilder("InfoIntent").require("KodiKeywords")).require("ScanKeywords").require("MovieKeywords").build()
+        self.register_intent(scanaudio_intent, self.handle_scanaudio_intent)
         
     #################################################################         
     def _load_vocab_files(self):
@@ -48,49 +97,47 @@ class KodiControllerSkill(MycroftSkill):
         for player in players:
             myPlayerid = player['playerid']   
         return myPlayerid
-    #################################################################         
     
+    #################################################################  
+'''    
     ### Connection controls
-    @intent_handler(IntentBuilder("").require("KodiKeywords")).require("ConnectKeywords")
-    def handle_direction_intent(self, message):
+    def handle_connection_intent(self):
         self.speak_dialog("WIP")
     
     ### Playback controls
-     @intent_handler(IntentBuilder("").require("KodiKeywords")).require("PlayPauseKeywords")
-    def handle_direction_intent(self, message):
+    def handle_playpause_intent(self):
 #        self.speak_dialog("WIP")
         myPlayerid = self.get_playerid()
         if myPlayerid != '':
             self.myKodi.Player.PlayPause(playerid=myPlayerid)
         else:
             self.speak_dialog("NotPlaying")
-    @intent_handler(IntentBuilder("").require("KodiKeywords")).require("StopKeywords")
-    def handle_direction_intent(self, message):
+
+    def handle_stop_intent(self):
 #        self.speak_dialog("WIP")
         myPlayerid = self.get_playerid()
         if myPlayerid != '':
             self.myKodi.Player.Stop(playerid=myPlayerid)
         else:
             self.speak_dialog("NotPlaying")    
-    @intent_handler(IntentBuilder("").require("KodiKeywords")).require("SeekKeywords").require("ForwardKeywords")
-    def handle_direction_intent(self, message):
+            
+    def handle_seekforward_intent(self):
 #        self.speak_dialog("WIP")
         myPlayerid = self.get_playerid()
         if myPlayerid != '':
             self.myKodi.Player.Seek(playerid=myPlayerid, value="smallforward")
         else:
-            self.speak_dialog("NotPlaying")    
-    @intent_handler(IntentBuilder("").require("KodiKeywords")).require("SeekKeywords").require("BackKeywords")
-    def handle_direction_intent(self, message):
+            self.speak_dialog("NotPlaying")       
+
+    def handle_seekback_intent(self):
 #        self.speak_dialog("WIP")
         myPlayerid = self.get_playerid()
         if myPlayerid != '':
             self.myKodi.Player.Seek(playerid=myPlayerid, value="smallbackward")
         else:
             self.speak_dialog("NotPlaying")  
-    
+'''    
     ### Menu controls
-    @intent_handler(IntentBuilder("").require("KodiKeywords")).require("DirectionKeywords")
     def handle_direction_intent(self, message):
         if message.data["DirectionKeywords"] == "up": 
 #            self.speak_dialog("WIP")
@@ -104,48 +151,40 @@ class KodiControllerSkill(MycroftSkill):
         else: 
             self.speak_dialog("WIP")
             # self.myKodi.Input.Right()     
-     @intent_handler(IntentBuilder("").require("KodiKeywords")).require("InfoKeywords")
-    def handle_direction_intent(self, message):
+
+    def handle_info_intent(self):
 #        self.speak_dialog("WIP")
         self.myKodi.Input.Info()
-     @intent_handler(IntentBuilder("").require("KodiKeywords")).require("OSDKeywords")
-    def handle_direction_intent(self, message):
+    
+    def handle_osd_intent(self):
 #        self.speak_dialog("WIP")
-        self.myKodi.Input.ShowOSD()        
-     @intent_handler(IntentBuilder("").require("KodiKeywords")).require("HomeKeywords")
-    def handle_direction_intent(self, message):
+        self.myKodi.Input.ShowOSD()      
+    
+    def handle_home_intent(self):
 #        self.speak_dialog("WIP")
         self.myKodi.Input.Home()        
-     @intent_handler(IntentBuilder("").require("KodiKeywords")).require("BackKeywords")
-    def handle_direction_intent(self, message):
+    
+    def handle_back_intent(self):
 #        self.speak_dialog("WIP")
-        self.myKodi.Input.Back()        
-     @intent_handler(IntentBuilder("").require("KodiKeywords")).require("ContextKeywords")
-    def handle_direction_intent(self, message):
+        self.myKodi.Input.Back()  
+    
+    def handle_context_intent(self):
         self.myKodi.Input.ContextMenu()  
-     @intent_handler(IntentBuilder("").require("KodiKeywords")).require("SelectKeywords")
-    def handle_direction_intent(self, message):
+        
+    def handle_select_intent(self):
 #        self.speak_dialog("WIP")
         self.myKodi.Input.Select()          
         
     ### Libary controls
-     @intent_handler(IntentBuilder("").require("KodiKeywords")).require("ScanKeywords").require("MovieKeywords")
-    def handle_direction_intent(self, message):
+
+    def handle_scanvideo_intent(self):
 #        self.speak_dialog("WIP")
-        self.myKodi.VideoLibrary.Scan()      
-    @intent_handler(IntentBuilder("").require("KodiKeywords")).require("ScanKeywords").require("MusicKeywords")
-    def handle_direction_intent(self, message):
+        self.myKodi.VideoLibrary.Scan()  
+    
+    def handle_scanaudio_intent(self):
 #        self.speak_dialog("WIP")
         self.myKodi.AudioLibrary.Scan()     
-
-    # The "stop" method defines what Mycroft does when told to stop during
-    # the skill's execution. In this case, since the skill's functionality
-    # is extremely simple, there is no need to override it.  If you DO
-    # need to implement stop, you should return True to indicate you handled
-    # it.
-    #
-    # def stop(self):
-    #    return False    
+        
         
 # The "create_skill()" method is used to create an instance of the skill.
 # Note that it's outside the class itself.
