@@ -1,6 +1,7 @@
 from adapt.intent import IntentBuilder
 from mycroft.skills.core import MycroftSkill, intent_handler
 from mycroft.util.log import LOG
+from os import listdir, path
 from os.path import dirname, join
 
 from kodipydent import Kodi
@@ -66,11 +67,11 @@ class KodiControllerSkill(MycroftSkill):
                
         # Library controls
         
-#        scanvideo_intent = IntentBuilder("InfoIntent").require("KodiKeywords")).require("ScanKeywords").require("MovieKeywords").build()
-#        self.register_intent(scanvideo_intent, self.handle_scanvideo_intent)
+        scanvideo_intent = IntentBuilder("InfoIntent").require("KodiKeywords")).require("ScanKeywords").require("MovieKeywords").build()
+        self.register_intent(scanvideo_intent, self.handle_scanvideo_intent)
         
-#        scanaudio_intent = IntentBuilder("InfoIntent").require("KodiKeywords")).require("ScanKeywords").require("MovieKeywords").build()
-#        self.register_intent(scanaudio_intent, self.handle_scanaudio_intent)
+        scanaudio_intent = IntentBuilder("InfoIntent").require("KodiKeywords")).require("ScanKeywords").require("MovieKeywords").build()
+        self.register_intent(scanaudio_intent, self.handle_scanaudio_intent)
         
     #################################################################         
     def _load_vocab_files(self):
@@ -178,13 +179,13 @@ class KodiControllerSkill(MycroftSkill):
         
     ### Libary controls
 
-#    def handle_scanvideo_intent(self):
+    def handle_scanvideo_intent(self):
 ##        self.speak_dialog("WIP")
-#        self.myKodi.VideoLibrary.Scan()  
+        self.myKodi.VideoLibrary.Scan()  
     
-#    def handle_scanaudio_intent(self):
+    def handle_scanaudio_intent(self):
 ##        self.speak_dialog("WIP")
-#        self.myKodi.AudioLibrary.Scan()     
+        self.myKodi.AudioLibrary.Scan()     
         
         
 # The "create_skill()" method is used to create an instance of the skill.
