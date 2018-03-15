@@ -56,11 +56,11 @@ you '''must''' edit these settings in Mycroft Home.
 * Down: "Kodi down"
 * Left: "Kodi left"
 * Right: "Kodi right"
-* Select: "Kodi select"
-* Show on-screen display: "Kodi display"
-* Info: "Kodi info"
+* Select: "Kodi select", "Kodi click", "Kodi enter" **&lt;working out bugs&gt;**
+* Show on-screen display: "Kodi display", "Kodi show on-screen display"
+* Info: "Kodi info" **&lt;working out bugs&gt;**
 * Home: "Kodi home"
-* Context menu: "Kodi context"
+* Context menu: "Kodi context" **&lt;working out bugs&gt;**
 * Back: "Kodi back"
 
 ### Playback
@@ -68,15 +68,23 @@ you '''must''' edit these settings in Mycroft Home.
 * Pause: "Kodi pause", "Kodi pause playback", "Pause Kodi", "Pause playback in Kodi"
 * Play: "Kodi play", "Play Kodi", "Kodi unpause", "Unpause Kodi"
 * Stop: "Kodi stop", "Kodi stop playback", "Stop Kodi"
-* Resume/rewatch last played: "Kodi resume", "Kodi resume playback", "Resume playback in Kodi", "Kodi play last watched"
+* Resume/rewatch last played: "Kodi resume", "Kodi resume playback", "Resume playback in Kodi", "Kodi play last watched" **&lt;WIP&gt;**
 * Seek forward: "Kodi skip ahead", "Kodi seek forward"
 * Seek backward: "Kodi skip back", "Kodi seek backward"
 * Search/open media: "Kodi find &lt;title&gt;", "Kodi search for &lt;title&gt;", "Search Kodi for &lt;title&gt;", "Search in Kodi for &lt;title&gt;", 
-* Play random movie: "Kodi play a random movie", "Play a random movie in Kodi", "Kodi random movie"
-* Enable subtitles: "Kodi enable subtitles", "Enable subtitles in Kodi", "Kodi turn on subtitiles"
-* Disable subtitles: "Kodi disable subtitles", "Disable subtitles in Kodi", "Kodi turn off subtitles"
+* Play random movie: "Kodi play a random movie", "Play a random movie in Kodi", "Kodi random movie" **&lt;WIP&gt;**
+* Enable subtitles: "Kodi enable subtitles", "Enable subtitles in Kodi", "Kodi turn on subtitiles" **&lt;WIP&gt;**
+* Disable subtitles: "Kodi disable subtitles", "Disable subtitles in Kodi", "Kodi turn off subtitles" **&lt;WIP&gt;**
 
 ### Media Library
 
-* Scan for new video: "Kodi scan library", "Kodi scan video"
-* Scan for new audio: "Kodi scan audio"
+* Scan for new video: "Kodi scan movies", "Kodi scan videos"  **&lt;working out bugs&gt;**
+* Scan for new audio: "Kodi scan audio" **&lt;working out bugs&gt;**
+
+## TODO
+
+* Address bugs with select, info, context, and library controls. (They're sort of working but go bugnuts.)
+* Fix ability to enable/disable subtitles
+* Add ability to search for and play movies
+* Add ability to play a random movie
+* Add ability to play last watched video
