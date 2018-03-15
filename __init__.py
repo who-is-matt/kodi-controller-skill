@@ -54,34 +54,34 @@ class KodiControllerSkill(MycroftSkill):
         subtitles_intent = IntentBuilder("SubtitlesIntent").require("KodiKeywords").require("SubtitlesKeywords").require("ActivationKeywords").build()
         self.register_intent(subtitles_intent, self.handle_subtitles_intent)
         
-        osd_intent = IntentBuilder("InfoIntent").require("KodiKeywords").require("OSDKeywords").build()
+        osd_intent = IntentBuilder("OSDIntent").require("KodiKeywords").require("OSDKeywords").build()
         self.register_intent(osd_intent, self.handle_osd_intent)
         
         # Menu controls
         direction_intent = IntentBuilder("DirectionIntent").require("KodiKeywords").require("DirectionKeywords").build()
         self.register_intent(direction_intent, self.handle_direction_intent)
         
-        back_intent = IntentBuilder("InfoIntent").require("KodiKeywords").require("BackKeywords").build()
+        back_intent = IntentBuilder("BackIntent").require("KodiKeywords").require("BackKeywords").build()
         self.register_intent(back_intent, self.handle_back_intent)        
         
-        select_intent = IntentBuilder("InfoIntent").require("KodiKeywords").require("SelectKeywords").build()
+        select_intent = IntentBuilder("SelectIntent").require("KodiKeywords").require("SelectKeywords").build()
         self.register_intent(select_intent, self.handle_select_intent)
         
-        home_intent = IntentBuilder("InfoIntent").require("KodiKeywords").require("HomeKeywords").build()
+        home_intent = IntentBuilder("HomeIntent").require("KodiKeywords").require("HomeKeywords").build()
         self.register_intent(home_intent, self.handle_home_intent)        
         
         info_intent = IntentBuilder("InfoIntent").require("KodiKeywords").require("InfoKeywords").build()
         self.register_intent(info_intent, self.handle_info_intent)
         
-        context_intent = IntentBuilder("InfoIntent").require("KodiKeywords").require("ContextKeywords").build()
+        context_intent = IntentBuilder("ContextIntent").require("KodiKeywords").require("ContextKeywords").build()
         self.register_intent(context_intent, self.handle_context_intent)
                
         # Library controls
         
-        scanvideo_intent = IntentBuilder("InfoIntent").require("KodiKeywords").require("ScanKeywords").require("MovieKeywords").build()
+        scanvideo_intent = IntentBuilder("ScanVideoIntent").require("KodiKeywords").require("ScanKeywords").require("MovieKeywords").build()
         self.register_intent(scanvideo_intent, self.handle_scanvideo_intent)
         
-        scanaudio_intent = IntentBuilder("InfoIntent").require("KodiKeywords").require("ScanKeywords").require("MusicKeywords").build()
+        scanaudio_intent = IntentBuilder("ScanAudioIntent").require("KodiKeywords").require("ScanKeywords").require("MusicKeywords").build()
         self.register_intent(scanaudio_intent, self.handle_scanaudio_intent)
         
     #################################################################         
