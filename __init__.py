@@ -150,8 +150,8 @@ class KodiControllerSkill(MycroftSkill):
 #            self.speak_dialog("WIP")
             self.myKodi.Input.Left()
         else: 
-            self.speak_dialog("WIP")
-            # self.myKodi.Input.Right()     
+#            self.speak_dialog("WIP")
+            self.myKodi.Input.Right()     
 
     def handle_info_intent(self):
 #        self.speak_dialog("WIP")
