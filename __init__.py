@@ -54,27 +54,27 @@ class KodiControllerSkill(MycroftSkill):
         subtitles_intent = IntentBuilder("SubtitlesIntent").require("KodiKeywords").require("SubtitlesKeywords").require("ActivationKeywords").build()
         self.register_intent(subtitles_intent, self.handle_subtitles_intent)
         
+        osd_intent = IntentBuilder("InfoIntent").require("KodiKeywords").require("OSDKeywords").build()
+        self.register_intent(osd_intent, self.handle_osd_intent)
+        
         # Menu controls
         direction_intent = IntentBuilder("DirectionIntent").require("KodiKeywords").require("DirectionKeywords").build()
         self.register_intent(direction_intent, self.handle_direction_intent)
         
-        info_intent = IntentBuilder("InfoIntent").require("KodiKeywords").require("InfoKeywords").build()
-        self.register_intent(info_intent, self.handle_info_intent)
-        
-        osd_intent = IntentBuilder("InfoIntent").require("KodiKeywords").require("OSDKeywords").build()
-        self.register_intent(osd_intent, self.handle_osd_intent)
-        
-        home_intent = IntentBuilder("InfoIntent").require("KodiKeywords").require("HomeKeywords").build()
-        self.register_intent(home_intent, self.handle_home_intent)
-        
         back_intent = IntentBuilder("InfoIntent").require("KodiKeywords").require("BackKeywords").build()
-        self.register_intent(back_intent, self.handle_back_intent)
-        
-        context_intent = IntentBuilder("InfoIntent").require("KodiKeywords").require("ContextKeywords").build()
-        self.register_intent(context_intent, self.handle_context_intent)
+        self.register_intent(back_intent, self.handle_back_intent)        
         
         select_intent = IntentBuilder("InfoIntent").require("KodiKeywords").require("SelectKeywords").build()
         self.register_intent(select_intent, self.handle_select_intent)
+        
+        home_intent = IntentBuilder("InfoIntent").require("KodiKeywords").require("HomeKeywords").build()
+        self.register_intent(home_intent, self.handle_home_intent)        
+        
+        info_intent = IntentBuilder("InfoIntent").require("KodiKeywords").require("InfoKeywords").build()
+        self.register_intent(info_intent, self.handle_info_intent)
+        
+        context_intent = IntentBuilder("InfoIntent").require("KodiKeywords").require("ContextKeywords").build()
+        self.register_intent(context_intent, self.handle_context_intent)
                
         # Library controls
         
@@ -168,6 +168,13 @@ class KodiControllerSkill(MycroftSkill):
         else: 
 #            self.speak_dialog("WIP")
             self.myKodi.Player.SetSubtitle(playerid=myPlayerid, subtitle=1, enable=False)
+
+    def handle_osd_intent(self):
+#        self.speak_dialog("WIP")
+        if self.debug_mode:
+            LOG.info("Kodi response: " + str(self.myKodi.Input.ShowOSD()))
+        else:
+            self.myKodi.Input.ShowOSD()    
    
     ### Menu controls
     def handle_direction_intent(self, message):
@@ -184,47 +191,40 @@ class KodiControllerSkill(MycroftSkill):
 #            self.speak_dialog("WIP")
             self.myKodi.Input.Right()     
 
-    def handle_info_intent(self):
-#        self.speak_dialog("WIP")
-        if self.debug_mode:
-            LOG.info("Kodi response: " + str(self.myKodi.Input.Info()))
-        else:
-            self.myKodi.Input.Info()
-    
-    def handle_osd_intent(self):
-#        self.speak_dialog("WIP")
-        if self.debug_mode:
-            LOG.info("Kodi response: " + str(self.myKodi.Input.ShowOSD()))
-        else:
-            self.myKodi.Input.ShowOSD()      
-    
-    def handle_home_intent(self):
-#        self.speak_dialog("WIP")
-        if self.debug_mode:
-            LOG.info("Kodi response: " + str(self.myKodi.Input.Home()))
-        else:
-            self.myKodi.Input.Home()        
-    
     def handle_back_intent(self):
 #        self.speak_dialog("WIP")
         if self.debug_mode:
             LOG.info("Kodi response: " + str(self.myKodi.Input.Back()))
         else:
-            self.myKodi.Input.Back()  
+            self.myKodi.Input.Back() 
+            
+    def handle_select_intent(self):
+#        self.speak_dialog("WIP")
+        if self.debug_mode:
+            LOG.info("Kodi response: " + str(self.myKodi.Input.Select()))
+        else:
+            self.myKodi.Input.Select()  
+            
+    def handle_home_intent(self):
+#        self.speak_dialog("WIP")
+        if self.debug_mode:
+            LOG.info("Kodi response: " + str(self.myKodi.Input.Home()))
+        else:
+            self.myKodi.Input.Home() 
+            
+    def handle_info_intent(self):
+#        self.speak_dialog("WIP")
+        if self.debug_mode:
+            LOG.info("Kodi response: " + str(self.myKodi.Input.Info()))
+        else:
+            self.myKodi.Input.Info()  
     
     def handle_context_intent(self):
         if self.debug_mode:
             LOG.info("Kodi response: " + str(self.myKodi.Input.ContextMenu()))
         else:
             self.myKodi.Input.ContextMenu()  
-        
-    def handle_select_intent(self):
-#        self.speak_dialog("WIP")
-        if self.debug_mode:
-            LOG.info("Kodi response: " + str(self.myKodi.Input.Select()))
-        else:
-            self.myKodi.Input.Select()          
-        
+             
     ### Libary controls
 
     def handle_scanvideo_intent(self):
