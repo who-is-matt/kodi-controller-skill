@@ -10,7 +10,7 @@ requiring the user to manually edit the skill's settings), to search for videos 
 music, and to control playback.
 
 ## Examples 
-* "Connect to Kodi at <IP address>"
+* "Connect to Kodi at &lt;IP address&gt;"
 * "Pause Kodi"
 * "Pause playback in Kodi"
 * "Resume Kodi"
