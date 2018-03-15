@@ -45,7 +45,7 @@ Enter the connection information in the Skills settings page of Mycroft Home.  E
 
 ### Connection
 
-* Connect: "Connect to Kodi on &lt;IP address&gt;", "Connect to Kodi at &lt;IP address&gt;", "Kodi connect &lt;IP address&gt;"  **&lt;WIP&gt;** 
+* Connect: "Connect to Kodi on &lt;IP address&gt;", "Connect to Kodi at &lt;IP address&gt;", "Kodi connect &lt;IP address&gt;"  **&#91;WIP&#93;** 
 
 ### Input Controls
 
@@ -64,14 +64,14 @@ Enter the connection information in the Skills settings page of Mycroft Home.  E
 * Pause: "Kodi pause", "Kodi pause playback", "Pause Kodi", "Pause playback in Kodi"
 * Play: "Kodi play", "Play Kodi", "Kodi unpause", "Unpause Kodi"
 * Stop: "Kodi stop", "Kodi stop playback", "Stop Kodi"
-* Resume/rewatch last played: "Kodi resume", "Kodi resume playback", "Resume playback in Kodi", "Kodi play last watched" **&lt;WIP&gt;**
+* Resume/rewatch last played: "Kodi resume", "Kodi resume playback", "Resume playback in Kodi", "Kodi play last watched" **&#91;WIP&#93;** 
 * Seek forward: "Kodi skip ahead", "Kodi seek forward"
 * Seek backward: "Kodi skip back", "Kodi seek backward"
 * Show on-screen display: "Kodi display", "Kodi show on-screen display"
-* Search/open media: "Kodi find &lt;title&gt;", "Kodi search for &lt;title&gt;", "Search Kodi for &lt;title&gt;", "Search in Kodi for &lt;title&gt;"  **&lt;WIP&gt;**
-* Play random movie: "Kodi play a random movie", "Play a random movie in Kodi", "Kodi random movie" **&lt;WIP&gt;**
-* Enable subtitles: "Kodi enable subtitles", "Enable subtitles in Kodi", "Kodi turn on subtitiles" **&lt;WIP&gt;**
-* Disable subtitles: "Kodi disable subtitles", "Disable subtitles in Kodi", "Kodi turn off subtitles" **&lt;WIP&gt;**
+* Search/open media: "Kodi find &lt;title&gt;", "Kodi search for &lt;title&gt;", "Search Kodi for &lt;title&gt;", "Search in Kodi for &lt;title&gt;"  **&#91;WIP&#93;** 
+* Play random movie: "Kodi play a random movie", "Play a random movie in Kodi", "Kodi random movie" **&#91;WIP&#93;** 
+* Enable subtitles: "Kodi enable subtitles", "Enable subtitles in Kodi", "Kodi turn on subtitiles" **&#91;WIP&#93;** 
+* Disable subtitles: "Kodi disable subtitles", "Disable subtitles in Kodi", "Kodi turn off subtitles" **&#91;WIP&#93;** 
 
 ### Media Library
 
