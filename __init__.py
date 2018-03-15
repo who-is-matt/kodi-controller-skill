@@ -131,28 +131,40 @@ class KodiControllerSkill(MycroftSkill):
     def handle_playpause_intent(self):
         myPlayerid = self.get_playerid()
         if myPlayerid != '':
-            self.myKodi.Player.PlayPause(playerid=myPlayerid)
+            if self.debug_mode:
+                LOG.info("Kodi response: " + str(self.myKodi.Player.PlayPause(playerid=myPlayerid)))
+            else:
+                self.myKodi.Player.PlayPause(playerid=myPlayerid)
         else:
             self.speak_dialog("NotPlaying")
 
     def handle_stop_intent(self):
         myPlayerid = self.get_playerid()
         if myPlayerid != '':
-            self.myKodi.Player.Stop(playerid=myPlayerid)
+            if self.debug_mode:
+                LOG.info("Kodi response: " + str(self.myKodi.Player.Stop(playerid=myPlayerid)))
+            else:
+                self.myKodi.Player.Stop(playerid=myPlayerid)
         else:
             self.speak_dialog("NotPlaying")    
             
     def handle_seekforward_intent(self):
         myPlayerid = self.get_playerid()
         if myPlayerid != '':
-            self.myKodi.Player.Seek(playerid=myPlayerid, value="smallforward")
+            if self.debug_mode:
+                LOG.info("Kodi response: " + str(self.myKodi.Player.Seek(playerid=myPlayerid, value="smallforward")))
+            else:
+                self.myKodi.Player.Seek(playerid=myPlayerid, value="smallforward")
         else:
             self.speak_dialog("NotPlaying")       
 
     def handle_seekback_intent(self):
         myPlayerid = self.get_playerid()
         if myPlayerid != '':
-            self.myKodi.Player.Seek(playerid=myPlayerid, value="smallbackward")
+            if self.debug_mode:
+                LOG.info("Kodi response: " + str(self.myKodi.Player.Seek(playerid=myPlayerid, value="smallbackward")))
+            else:
+                self.myKodi.Player.Seek(playerid=myPlayerid, value="smallbackward")
         else:
             self.speak_dialog("NotPlaying")  
             
