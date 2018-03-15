@@ -34,7 +34,7 @@ Python module.
 
 ## Setup
 
-In Kodi, enable ["Allow remote control via HTTP](https://kodi.wiki/view/Settings/Services/Control).  
+In Kodi, enable "[Allow remote control via HTTP](https://kodi.wiki/view/Settings/Services/Control)".  
 
 Enter the connection information in the Skills settings page of Mycroft Home.  Eventually, the user will be able to connect to Kodi (if using the default port with no password) using the device's IP address using any of the following commands:
 "Mycroft, connect to Kodi on &lt;IP address&gt;"
