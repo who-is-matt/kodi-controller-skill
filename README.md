@@ -68,7 +68,7 @@ Enter the connection information in the Skills settings page of Mycroft Home.  E
 * Resume/rewatch last played: "Kodi resume", "Kodi resume playback", "Resume playback in Kodi", "Kodi play last watched" **&lt;WIP&gt;**
 * Seek forward: "Kodi skip ahead", "Kodi seek forward"
 * Seek backward: "Kodi skip back", "Kodi seek backward"
-* Search/open media: "Kodi find &lt;title&gt;", "Kodi search for &lt;title&gt;", "Search Kodi for &lt;title&gt;", "Search in Kodi for &lt;title&gt;", 
+* Search/open media: "Kodi find &lt;title&gt;", "Kodi search for &lt;title&gt;", "Search Kodi for &lt;title&gt;", "Search in Kodi for &lt;title&gt;"  **&lt;WIP&gt;**
 * Play random movie: "Kodi play a random movie", "Play a random movie in Kodi", "Kodi random movie" **&lt;WIP&gt;**
 * Enable subtitles: "Kodi enable subtitles", "Enable subtitles in Kodi", "Kodi turn on subtitiles" **&lt;WIP&gt;**
 * Disable subtitles: "Kodi disable subtitles", "Disable subtitles in Kodi", "Kodi turn off subtitles" **&lt;WIP&gt;**
