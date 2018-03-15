@@ -1,6 +1,7 @@
 from adapt.intent import IntentBuilder
 from mycroft.skills.core import MycroftSkill, intent_handler
 from mycroft.util.log import LOG
+from os.path import join
 
 from kodipydent import Kodi
 
