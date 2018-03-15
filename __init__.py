@@ -67,10 +67,10 @@ class KodiControllerSkill(MycroftSkill):
                
         # Library controls
         
-        scanvideo_intent = IntentBuilder("InfoIntent").require("KodiKeywords")).require("ScanKeywords").require("MovieKeywords").build()
+        scanvideo_intent = IntentBuilder("InfoIntent").require("KodiKeywords").require("ScanKeywords").require("MovieKeywords").build()
         self.register_intent(scanvideo_intent, self.handle_scanvideo_intent)
         
-        scanaudio_intent = IntentBuilder("InfoIntent").require("KodiKeywords")).require("ScanKeywords").require("MovieKeywords").build()
+        scanaudio_intent = IntentBuilder("InfoIntent").require("KodiKeywords").require("ScanKeywords").require("MovieKeywords").build()
         self.register_intent(scanaudio_intent, self.handle_scanaudio_intent)
         
     #################################################################         
