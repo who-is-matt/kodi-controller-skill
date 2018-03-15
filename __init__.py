@@ -129,7 +129,6 @@ class KodiControllerSkill(MycroftSkill):
     
     ### Playback controls
     def handle_playpause_intent(self):
-#        self.speak_dialog("WIP")
         myPlayerid = self.get_playerid()
         if myPlayerid != '':
             self.myKodi.Player.PlayPause(playerid=myPlayerid)
@@ -137,7 +136,6 @@ class KodiControllerSkill(MycroftSkill):
             self.speak_dialog("NotPlaying")
 
     def handle_stop_intent(self):
-#        self.speak_dialog("WIP")
         myPlayerid = self.get_playerid()
         if myPlayerid != '':
             self.myKodi.Player.Stop(playerid=myPlayerid)
@@ -145,7 +143,6 @@ class KodiControllerSkill(MycroftSkill):
             self.speak_dialog("NotPlaying")    
             
     def handle_seekforward_intent(self):
-#        self.speak_dialog("WIP")
         myPlayerid = self.get_playerid()
         if myPlayerid != '':
             self.myKodi.Player.Seek(playerid=myPlayerid, value="smallforward")
@@ -153,7 +150,6 @@ class KodiControllerSkill(MycroftSkill):
             self.speak_dialog("NotPlaying")       
 
     def handle_seekback_intent(self):
-#        self.speak_dialog("WIP")
         myPlayerid = self.get_playerid()
         if myPlayerid != '':
             self.myKodi.Player.Seek(playerid=myPlayerid, value="smallbackward")
@@ -161,16 +157,14 @@ class KodiControllerSkill(MycroftSkill):
             self.speak_dialog("NotPlaying")  
             
     def handle_subtitles_intent(self, message):
-        myPlayerid = self.get_playerid()
-        if message.data["ActivationKeywords"] == "enable" or message.data["ActivationKeywords"] == "turn on": 
-#            self.speak_dialog("WIP")
-            self.myKodi.Player.SetSubtitle(playerid=myPlayerid, subtitle=1, enable=True)
-        else: 
-#            self.speak_dialog("WIP")
-            self.myKodi.Player.SetSubtitle(playerid=myPlayerid, subtitle=1, enable=False)
+        self.speak_dialog("WIP")
+        #myPlayerid = self.get_playerid()
+        #if message.data["ActivationKeywords"] == "enable" or message.data["ActivationKeywords"] == "turn on": 
+            #self.myKodi.Player.SetSubtitle(playerid=myPlayerid, subtitle=1, enable=True)
+        #else: 
+            #self.myKodi.Player.SetSubtitle(playerid=myPlayerid, subtitle=1, enable=False)
 
     def handle_osd_intent(self):
-#        self.speak_dialog("WIP")
         if self.debug_mode:
             LOG.info("Kodi response: " + str(self.myKodi.Input.ShowOSD()))
         else:
@@ -178,42 +172,46 @@ class KodiControllerSkill(MycroftSkill):
    
     ### Menu controls
     def handle_direction_intent(self, message):
-        if message.data["DirectionKeywords"] == "up": 
-#            self.speak_dialog("WIP")
-            self.myKodi.Input.Up()
+        if message.data["DirectionKeywords"] == "up":
+            if self.debug_mode:
+                LOG.info("Kodi response: " + str(self.myKodi.Input.Up()))
+            else:
+                self.myKodi.Input.Up()
         elif message.data["DirectionKeywords"] == "down":
-#            self.speak_dialog("WIP")
-            self.myKodi.Input.Down()
+            if self.debug_mode:
+                LOG.info("Kodi response: " + str(self.myKodi.Input.Down()))
+            else:
+                self.myKodi.Input.Down()
         elif message.data["DirectionKeywords"] == "left": 
-#            self.speak_dialog("WIP")
-            self.myKodi.Input.Left()
+            if self.debug_mode:
+                LOG.info("Kodi response: " + str(self.myKodi.Input.Left()))
+            else:
+                self.myKodi.Input.Left()
         else: 
-#            self.speak_dialog("WIP")
-            self.myKodi.Input.Right()     
+            if self.debug_mode:
+                LOG.info("Kodi response: " + str(self.myKodi.Input.Right()))
+            else:
+                self.myKodi.Input.Right()    
 
     def handle_back_intent(self):
-#        self.speak_dialog("WIP")
         if self.debug_mode:
             LOG.info("Kodi response: " + str(self.myKodi.Input.Back()))
         else:
-            self.myKodi.Input.Back() 
+            self.myKodi.Input.Back()
             
     def handle_select_intent(self):
-#        self.speak_dialog("WIP")
         if self.debug_mode:
             LOG.info("Kodi response: " + str(self.myKodi.Input.Select()))
         else:
             self.myKodi.Input.Select()  
             
     def handle_home_intent(self):
-#        self.speak_dialog("WIP")
         if self.debug_mode:
             LOG.info("Kodi response: " + str(self.myKodi.Input.Home()))
         else:
-            self.myKodi.Input.Home() 
+            self.myKodi.Input.Home()
             
     def handle_info_intent(self):
-#        self.speak_dialog("WIP")
         if self.debug_mode:
             LOG.info("Kodi response: " + str(self.myKodi.Input.Info()))
         else:
@@ -228,14 +226,12 @@ class KodiControllerSkill(MycroftSkill):
     ### Libary controls
 
     def handle_scanvideo_intent(self):
-##        self.speak_dialog("WIP")
         if self.debug_mode:
             LOG.info("Kodi response: " + str(self.myKodi.VideoLibrary.Scan()))
         else:
             self.myKodi.VideoLibrary.Scan()  
     
     def handle_scanaudio_intent(self):
-##        self.speak_dialog("WIP")
         if self.debug_mode:
             LOG.info("Kodi response: " + str(self.myKodi.AudioLibrary.Scan()))
         else:
