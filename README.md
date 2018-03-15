@@ -53,11 +53,10 @@ Enter the connection information in the Skills settings page of Mycroft Home.  E
 * Down: "Kodi down"
 * Left: "Kodi left"
 * Right: "Kodi right"
-* Select: "Kodi select", "Kodi click", "Kodi enter" **&lt;working out bugs&gt;**
-* Show on-screen display: "Kodi display", "Kodi show on-screen display"
-* Info: "Kodi info" **&lt;working out bugs&gt;**
+* Select: "Kodi select", "Kodi click", "Kodi enter"
+* Info: "Kodi info"
 * Home: "Kodi home"
-* Context menu: "Kodi context" **&lt;working out bugs&gt;**
+* Context menu: "Kodi context"
 * Back: "Kodi back"
 
 ### Playback
@@ -68,6 +67,7 @@ Enter the connection information in the Skills settings page of Mycroft Home.  E
 * Resume/rewatch last played: "Kodi resume", "Kodi resume playback", "Resume playback in Kodi", "Kodi play last watched" **&lt;WIP&gt;**
 * Seek forward: "Kodi skip ahead", "Kodi seek forward"
 * Seek backward: "Kodi skip back", "Kodi seek backward"
+* Show on-screen display: "Kodi display", "Kodi show on-screen display"
 * Search/open media: "Kodi find &lt;title&gt;", "Kodi search for &lt;title&gt;", "Search Kodi for &lt;title&gt;", "Search in Kodi for &lt;title&gt;"  **&lt;WIP&gt;**
 * Play random movie: "Kodi play a random movie", "Play a random movie in Kodi", "Kodi random movie" **&lt;WIP&gt;**
 * Enable subtitles: "Kodi enable subtitles", "Enable subtitles in Kodi", "Kodi turn on subtitiles" **&lt;WIP&gt;**
@@ -75,12 +75,11 @@ Enter the connection information in the Skills settings page of Mycroft Home.  E
 
 ### Media Library
 
-* Scan for new video: "Kodi scan movies", "Kodi scan videos"  **&lt;working out bugs&gt;**
-* Scan for new audio: "Kodi scan audio" **&lt;working out bugs&gt;**
+* Scan for new video: "Kodi scan movies", "Kodi scan videos"
+* Scan for new audio: "Kodi scan audio"
 
 ## TODO
 
-* Address bugs with select, info, context, and library controls. (They're sort of working but go bugnuts.)
 * Fix ability to enable/disable subtitles
 * Add ability to search for and play movies
 * Add ability to play a random movie
