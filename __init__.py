@@ -73,7 +73,7 @@ class KodiControllerSkill(MycroftSkill):
         scanvideo_intent = IntentBuilder("InfoIntent").require("KodiKeywords").require("ScanKeywords").require("MovieKeywords").build()
         self.register_intent(scanvideo_intent, self.handle_scanvideo_intent)
         
-        scanaudio_intent = IntentBuilder("InfoIntent").require("KodiKeywords").require("ScanKeywords").require("MovieKeywords").build()
+        scanaudio_intent = IntentBuilder("InfoIntent").require("KodiKeywords").require("ScanKeywords").require("MusicKeywords").build()
         self.register_intent(scanaudio_intent, self.handle_scanaudio_intent)
         
     #################################################################         
@@ -168,36 +168,60 @@ class KodiControllerSkill(MycroftSkill):
 
     def handle_info_intent(self):
 #        self.speak_dialog("WIP")
-        self.myKodi.Input.Info()
+        if self.debug_mode:
+            LOG.info("Kodi response: " + self.myKodi.Input.Info())
+        else:
+            self.myKodi.Input.Info()
     
     def handle_osd_intent(self):
 #        self.speak_dialog("WIP")
-        self.myKodi.Input.ShowOSD()      
+        if self.debug_mode:
+            LOG.info("Kodi response: " + self.myKodi.Input.ShowOSD())
+        else:
+            self.myKodi.Input.ShowOSD()      
     
     def handle_home_intent(self):
 #        self.speak_dialog("WIP")
-        self.myKodi.Input.Home()        
+        if self.debug_mode:
+            LOG.info("Kodi response: " + self.myKodi.Input.Home())
+        else:
+            self.myKodi.Input.Home()        
     
     def handle_back_intent(self):
 #        self.speak_dialog("WIP")
-        self.myKodi.Input.Back()  
+        if self.debug_mode:
+            LOG.info("Kodi response: " + self.myKodi.Input.Back())
+        else:
+            self.myKodi.Input.Back()  
     
     def handle_context_intent(self):
-        self.myKodi.Input.ContextMenu()  
+        if self.debug_mode:
+            LOG.info("Kodi response: " + self.myKodi.Input.ContextMenu())
+        else:
+            self.myKodi.Input.ContextMenu()  
         
     def handle_select_intent(self):
 #        self.speak_dialog("WIP")
-        self.myKodi.Input.Select()          
+        if self.debug_mode:
+            LOG.info("Kodi response: " + self.myKodi.Input.Select())
+        else:
+            self.myKodi.Input.Select()          
         
     ### Libary controls
 
     def handle_scanvideo_intent(self):
 ##        self.speak_dialog("WIP")
-        self.myKodi.VideoLibrary.Scan()  
+        if self.debug_mode:
+            LOG.info("Kodi response: " + self.myKodi.VideoLibrary.Scan())
+        else:
+            self.myKodi.VideoLibrary.Scan()  
     
     def handle_scanaudio_intent(self):
 ##        self.speak_dialog("WIP")
-        self.myKodi.AudioLibrary.Scan()     
+        if self.debug_mode:
+            LOG.info("Kodi response: " + self.myKodi.AudioLibrary.Scan())
+        else:
+            self.myKodi.AudioLibrary.Scan()     
         
         
 # The "create_skill()" method is used to create an instance of the skill.
