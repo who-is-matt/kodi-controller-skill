@@ -1,6 +1,7 @@
 from adapt.intent import IntentBuilder
 from mycroft.skills.core import MycroftSkill, intent_handler
 from mycroft.util.log import LOG
+from mycroft.messagebus.message import Message
 from os import listdir, path
 from os.path import dirname, join
 
@@ -19,12 +20,19 @@ class KodiControllerSkill(MycroftSkill):
         
         self.vocabs = []
         
+        self.debug_mode = False
+        
     def initialize(self):
         self._load_vocab_files() 
         self.settings.set_changed_callback(self.on_websettings_changed)
         self.on_websettings_changed()  
         
         ### Register intents
+        
+        # Debugging
+        
+        debug_intent = IntentBuilder("DebugIntent").require("KodiKeywords").require("DebugKeywords").require("ActivationKeywords").build()
+        self.register_intent(debug_intent, self.handle_debug_intent)
       
         # Connection controls
         connection_intent = IntentBuilder("ConnectionIntent").require("KodiKeywords").require("ConnectKeywords").build()
@@ -105,6 +113,16 @@ class KodiControllerSkill(MycroftSkill):
     
     #################################################################  
    
+    ### Debugging
+    
+    def handle_debug_intent(self, message):
+        if message.data["ActivationKeywords"] == "enable" or message.data["ActivationKeywords"] == "turn on": 
+            self.speak_dialog("DebugEnabled")
+            self.debug_mode = True
+        else: 
+            self.speak_dialog("DebugDisabled")
+            self.debug_mode = False
+
     ### Connection controls
     def handle_connection_intent(self):
         self.speak_dialog("WIP")
@@ -169,41 +187,41 @@ class KodiControllerSkill(MycroftSkill):
     def handle_info_intent(self):
 #        self.speak_dialog("WIP")
         if self.debug_mode:
-            LOG.info("Kodi response: " + self.myKodi.Input.Info())
+            LOG.info("Kodi response: " + str(self.myKodi.Input.Info()))
         else:
             self.myKodi.Input.Info()
     
     def handle_osd_intent(self):
 #        self.speak_dialog("WIP")
         if self.debug_mode:
-            LOG.info("Kodi response: " + self.myKodi.Input.ShowOSD())
+            LOG.info("Kodi response: " + str(self.myKodi.Input.ShowOSD()))
         else:
             self.myKodi.Input.ShowOSD()      
     
     def handle_home_intent(self):
 #        self.speak_dialog("WIP")
         if self.debug_mode:
-            LOG.info("Kodi response: " + self.myKodi.Input.Home())
+            LOG.info("Kodi response: " + str(self.myKodi.Input.Home()))
         else:
             self.myKodi.Input.Home()        
     
     def handle_back_intent(self):
 #        self.speak_dialog("WIP")
         if self.debug_mode:
-            LOG.info("Kodi response: " + self.myKodi.Input.Back())
+            LOG.info("Kodi response: " + str(self.myKodi.Input.Back()))
         else:
             self.myKodi.Input.Back()  
     
     def handle_context_intent(self):
         if self.debug_mode:
-            LOG.info("Kodi response: " + self.myKodi.Input.ContextMenu())
+            LOG.info("Kodi response: " + str(self.myKodi.Input.ContextMenu()))
         else:
             self.myKodi.Input.ContextMenu()  
         
     def handle_select_intent(self):
 #        self.speak_dialog("WIP")
         if self.debug_mode:
-            LOG.info("Kodi response: " + self.myKodi.Input.Select())
+            LOG.info("Kodi response: " + str(self.myKodi.Input.Select()))
         else:
             self.myKodi.Input.Select()          
         
@@ -212,14 +230,14 @@ class KodiControllerSkill(MycroftSkill):
     def handle_scanvideo_intent(self):
 ##        self.speak_dialog("WIP")
         if self.debug_mode:
-            LOG.info("Kodi response: " + self.myKodi.VideoLibrary.Scan())
+            LOG.info("Kodi response: " + str(self.myKodi.VideoLibrary.Scan()))
         else:
             self.myKodi.VideoLibrary.Scan()  
     
     def handle_scanaudio_intent(self):
 ##        self.speak_dialog("WIP")
         if self.debug_mode:
-            LOG.info("Kodi response: " + self.myKodi.AudioLibrary.Scan())
+            LOG.info("Kodi response: " + str(self.myKodi.AudioLibrary.Scan()))
         else:
             self.myKodi.AudioLibrary.Scan()     
         
