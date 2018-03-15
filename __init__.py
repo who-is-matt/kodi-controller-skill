@@ -62,7 +62,7 @@ class KodiControllerSkill(MycroftSkill):
         
         select_intent = IntentBuilder("InfoIntent").require("KodiKeywords").require("SelectKeywords").build()
         self.register_intent(select_intent, self.handle_select_intent)
-        
+ '''       
         # Library controls
         
         scanvideo_intent = IntentBuilder("InfoIntent").require("KodiKeywords")).require("ScanKeywords").require("MovieKeywords").build()
@@ -70,7 +70,7 @@ class KodiControllerSkill(MycroftSkill):
         
         scanaudio_intent = IntentBuilder("InfoIntent").require("KodiKeywords")).require("ScanKeywords").require("MovieKeywords").build()
         self.register_intent(scanaudio_intent, self.handle_scanaudio_intent)
-        
+'''        
     #################################################################         
     def _load_vocab_files(self):
         # Keep a list of all the vocabulary words for this skill.  Later
@@ -136,7 +136,7 @@ class KodiControllerSkill(MycroftSkill):
             self.myKodi.Player.Seek(playerid=myPlayerid, value="smallbackward")
         else:
             self.speak_dialog("NotPlaying")  
-    
+   
     ### Menu controls
     def handle_direction_intent(self, message):
         if message.data["DirectionKeywords"] == "up": 
@@ -174,7 +174,7 @@ class KodiControllerSkill(MycroftSkill):
     def handle_select_intent(self):
 #        self.speak_dialog("WIP")
         self.myKodi.Input.Select()          
-        
+'''        
     ### Libary controls
 
     def handle_scanvideo_intent(self):
@@ -184,7 +184,7 @@ class KodiControllerSkill(MycroftSkill):
     def handle_scanaudio_intent(self):
 #        self.speak_dialog("WIP")
         self.myKodi.AudioLibrary.Scan()     
-        
+'''        
         
 # The "create_skill()" method is used to create an instance of the skill.
 # Note that it's outside the class itself.
