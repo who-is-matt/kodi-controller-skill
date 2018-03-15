@@ -43,6 +43,9 @@ class KodiControllerSkill(MycroftSkill):
         seekback_intent = IntentBuilder("SeekBackIntent").require("KodiKeywords").require("SeekKeywords").require("BackKeywords").build()
         self.register_intent(seekback_intent, self.handle_seekback_intent)
         
+        subtitles_intent = IntentBuilder("SubtitlesIntent").require("KodiKeywords").require("SubtitlesKeywords").require("ActivationKeywords").build()
+        self.register_intent(subtitles_intent, self.handle_subtitles_intent)
+        
         # Menu controls
         direction_intent = IntentBuilder("DirectionIntent").require("KodiKeywords").require("DirectionKeywords").build()
         self.register_intent(direction_intent, self.handle_direction_intent)
@@ -138,6 +141,15 @@ class KodiControllerSkill(MycroftSkill):
             self.myKodi.Player.Seek(playerid=myPlayerid, value="smallbackward")
         else:
             self.speak_dialog("NotPlaying")  
+            
+    def handle_subtitles_intent(self, message):
+        myPlayerid = self.get_playerid()
+        if message.data["ActivationKeywords"] == "enable" or message.data["ActivationKeywords"] == "turn on": 
+#            self.speak_dialog("WIP")
+            self.myKodi.Player.SetSubtitle(playerid=myPlayerid, subtitle=1, enable=True)
+        else: 
+#            self.speak_dialog("WIP")
+            self.myKodi.Player.SetSubtitle(playerid=myPlayerid, subtitle=1, enable=False)
    
     ### Menu controls
     def handle_direction_intent(self, message):
