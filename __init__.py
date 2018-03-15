@@ -99,7 +99,7 @@ class KodiControllerSkill(MycroftSkill):
         return myPlayerid
     
     #################################################################  
-'''    
+   
     ### Connection controls
     def handle_connection_intent(self):
         self.speak_dialog("WIP")
@@ -136,7 +136,7 @@ class KodiControllerSkill(MycroftSkill):
             self.myKodi.Player.Seek(playerid=myPlayerid, value="smallbackward")
         else:
             self.speak_dialog("NotPlaying")  
-'''    
+    
     ### Menu controls
     def handle_direction_intent(self, message):
         if message.data["DirectionKeywords"] == "up": 
