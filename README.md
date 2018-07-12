@@ -85,4 +85,4 @@ Enter the connection information in the Skills settings page of Mycroft Home.  E
 * Add ability to play a random movie
 * Add ability to play last watched video
 
-**Update:** Yes, this skill is still in development.  I ran into issues with the Kodi API concerning searching for and playing specific videos, and then I had to set this aside for a while due to focus on other personal and professional projects.  I hope to make some significant updates and improvements in the next couple of weeks, and to make sure the skill is updated for Python 3.4+.
+**Update (July 2018):** Yes, this skill is still in development.  I ran into issues with the Kodi API concerning searching for and playing specific videos, and then I had to set this aside for a while due to focus on other personal and professional projects.  I hope to make some significant updates and improvements in the next couple of weeks, and to make sure the skill is updated for Python 3.4+.
