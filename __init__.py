@@ -235,7 +235,7 @@ class KodiControllerSkill(MycroftSkill):
         else:
             self.myKodi.Input.ContextMenu()  
              
-    ### Libary controls
+    ### Library controls
 
     def handle_scanvideo_intent(self):
         if self.debug_mode:
@@ -247,7 +247,9 @@ class KodiControllerSkill(MycroftSkill):
         if self.debug_mode:
             LOG.info("Kodi response: " + str(self.myKodi.AudioLibrary.Scan()))
         else:
-            self.myKodi.AudioLibrary.Scan()     
+            self.myKodi.AudioLibrary.Scan()   
+            
+    # Playing specific files: the Kodi API is not being very helpful.  Probably need to speak with a Kodi developer about this.
         
         
 def create_skill():
