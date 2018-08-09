@@ -7,7 +7,6 @@ from os.path import dirname, join
 
 from kodipydent import Kodi
 
-
 class KodiControllerSkill(MycroftSkill):
 
     # The constructor of the skill, which calls MycroftSkill's constructor
@@ -249,8 +248,10 @@ class KodiControllerSkill(MycroftSkill):
         else:
             self.myKodi.AudioLibrary.Scan()   
             
-    # Playing specific files: the Kodi API is not being very helpful.  Probably need to speak with a Kodi developer about this.
-        
+    ### Search and playing specific videos
+    # The Kodi API is being uncooperative.  Waiting on a response from a Kodi developer about how to do this.
+    
+#################################################################    
         
 def create_skill():
     return KodiControllerSkill()
